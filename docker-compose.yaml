@@ -1,0 +1,13 @@
+version: "3"
+services:
+  cpp-dev-service:
+    container_name: cpp-dev-container
+    image: cpp-dev-image
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    restart: always
+    environment:
+      - DISPLAY=:0

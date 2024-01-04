@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(projectName LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(SOURCE_FILES src/main.cpp)
+add_executable(exe ${SOURCE_FILES})
+target_include_directories(exe PRIVATE /usr/include/boost/)
+# target_link_libraries(exe PRIVATE /usr/lib/x86_64-linux-gnu/)
+
+
+# set(BOOST_ROOT "/usr")
+# find_package(Boost REQUIRED COMPONENTS filesystem system thread)
+# target_include_directories(exe PRIVATE ${Boost_INCLUDE_DIRS})
+# target_link_libraries(exe PRIVATE ${Boost_LIBRARIES})
+# message(STATUS "JOZWIAK: Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
+# message(STATUS "JOZWIAK: Boost_LIBRARIES: ${Boost_LIBRARIES}")

@@ -1,0 +1,5 @@
+Client
+Testing Script/google test
+multithreading -accept more than one client
+logs - boost/logs
+tasks - fake computations
