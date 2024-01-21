@@ -6,6 +6,7 @@
 #include <list>
 #include <mutex>
 #include <memory>
+#include <functional>
 #define LINE std::cout << "------------------------------------------\n";
 
 template <typename T>
@@ -14,6 +15,9 @@ void print(T &&t)
     std::cout << std::forward<T>(t) << std::endl;
 }
 
+// Functor = class which overloads the function call operator operator().
+// NOTE: The number of arguments the operator() function takes doesn't affect wheter it qaulifies as a functor; what matters is that it overloads the function call operator
+// NOTE: Lambda is a functor
 class Functor
 {
 public:
@@ -54,6 +58,15 @@ int main()
     LINE;
 
     std::sort(v2.begin(), v2.end(), Greater<int>());
+    for (auto &v2i : v2)
+    {
+        print(v2i);
+    }
+    LINE;
+
+    std::function<bool(const int &, const int &)> greater = [](const int &left, const int &right) -> bool
+    { return left < right; };
+    std::sort(v2.begin(), v2.end(), greater);
     for (auto &v2i : v2)
     {
         print(v2i);
