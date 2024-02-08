@@ -7,7 +7,7 @@
 #include <mutex>
 #include <memory>
 #include <functional>
-#define LINE std::cout << "------------------------------------------\n";
+#define LINE std::cout << "------------------------------------------\n"
 
 template <typename T>
 void print(T &&t)
