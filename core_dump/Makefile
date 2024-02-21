@@ -8,7 +8,7 @@ configure: prepare
 	cd build && cmake ..
 build: configure
 	ulimit -c unlimited
-	cd build && cmake --build .
+	cd build && cmake --build . -j$(nproc)
 run:
 	cd build && ulimit -c unlimited && ./exe
 read_core_dump:

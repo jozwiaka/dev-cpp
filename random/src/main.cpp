@@ -16,18 +16,21 @@ void print(T &&t)
 
 int main()
 {
-    // Use a random device to seed the random number generator
-    std::random_device rd;
+    for (int i = 0; i < 10; i++)
+    {
+        // Use a random device to seed the random number generator
+        static std::random_device rd;
 
-    // Use the Mersenne Twister engine for high-quality random nubmers
-    std::mt19937 gen(rd());
+        // Use the Mersenne Twister engine for high-quality random nubmers
+        static std::mt19937 gen(rd());
 
-    int min = 1;
-    int max = 100;
+        int min = 1;
+        int max = 100;
 
-    std::uniform_int_distribution<int> distribution(min, max);
+        static std::uniform_int_distribution<int> distribution(min, max);
 
-    int randomNumber = distribution(gen);
+        int randomNumber = distribution(gen);
 
-    print(randomNumber);
+        print(randomNumber);
+    }
 }
